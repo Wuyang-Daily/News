@@ -1,1 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深度报道 · 青苗中学事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: 0 !important;
+        }
 
+        body {
+            background-color: #eef2f7;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 1.8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 340px;
+            background-image: url('images/background.png');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 3.6rem;
+            position: relative;
+        }
+
+        .hero-image .hero-title {
+            max-width: 80%;
+        }
+
+        .hero-image .hero-title .title-line-1 {
+            display: block;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+            text-shadow: 0 8px 28px rgba(0,0,0,0.5);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-image .hero-title .title-line-2 {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            opacity: 0.95;
+            margin-top: 0.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-image .hero-title .sub-head {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: #e2e8f0;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .hero-image .hero-title .sub-head span {
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(6px);
+            padding: 0.1rem 1.2rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @media (max-width: 750px) {
+            .hero-image {
+                height: 280px;
+                padding: 0 1.8rem;
+            }
+            .hero-image .hero-title .title-line-1 {
+                font-size: 2.6rem;
+                line-height: 1.2;
+            }
+            .hero-image .hero-title .title-line-2 {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+            .hero-image .hero-title .sub-head {
+                font-size: 0.85rem;
+                gap: 0.4rem 1rem;
+            }
+            .hero-image .hero-title {
+                max-width: 92%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image {
+                height: 220px;
+                padding: 0 1.2rem;
+            }
+            .hero-image .hero-title .title-line-1 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            .hero-image .hero-title .title-line-2 {
+                font-size: 1.2rem;
+                line-height: 1.3;
+            }
+            .hero-image .hero-title .sub-head {
+                font-size: 0.7rem;
+                gap: 0.3rem 0.6rem;
+            }
+            .hero-image .hero-title .sub-head span {
+                padding: 0.05rem 0.8rem;
+            }
+        }
+
+        /* ===== 正文内容 ===== */
+        .article-body {
+            padding: 2.2rem 3.2rem 2.8rem;
+            font-size: 1.05rem;
+            color: #1e293b;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+        }
+
+        .article-body h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin: 2.8rem 0 0.8rem 0;
+            letter-spacing: -0.01em;
+            color: #1a3654;
+            position: relative;
+            padding: 0.4rem 0 0.4rem 1.6rem;
+            border-left: 6px solid #991b1b;
+            line-height: 1.3;
+            background: linear-gradient(90deg, #f8fafc 0%, transparent 100%);
+        }
+
+        .article-body h2::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: #991b1b;
+            opacity: 0.6;
+        }
+
+        .article-body h2::after {
+            content: '';
+            position: absolute;
+            left: 1.6rem;
+            bottom: 0;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, #1a3654, #991b1b);
+        }
+
+        .section-image {
+            margin: 0.6rem 0 1.2rem 0;
+            overflow: hidden;
+            background: #f1f5f9;
+            border: 1px solid #e9edf2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            background-image: radial-gradient(circle at 20% 30%, #e9edf2 1px, transparent 1px);
+            background-size: 28px 28px;
+            color: #64748b;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            position: relative;
+        }
+
+        .section-image .img-placeholder {
+            width: 100%;
+            padding: 1.6rem 1.2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+        .section-image .img-placeholder img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .section-image .img-placeholder .caption {
+            margin-top: 0.4rem;
+            font-size: 0.75rem;
+            color: #64748b;
+            background: rgba(255,255,255,0.6);
+            padding: 0.1rem 1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 0.5rem 0;
+            color: #1a3654;
+            display: inline-block;
+            padding: 0.2rem 1.4rem 0.2rem 0.8rem;
+            border-left: 4px solid #991b1b;
+            background: linear-gradient(to right, #f1f5f9, transparent);
+            position: relative;
+        }
+
+        .article-body h3::after {
+            content: '◆';
+            color: #991b1b;
+            font-size: 0.6rem;
+            margin-left: 0.6rem;
+            opacity: 0.5;
+        }
+
+        .article-body ul {
+            margin: 0.6rem 0 1.4rem 1.5rem;
+            list-style: disc;
+        }
+
+        .article-body li {
+            margin-bottom: 0.4rem;
+        }
+
+        .article-body .highlight-box {
+            background: #f8fafc;
+            padding: 1.2rem 1.8rem;
+            border-left: 6px solid #991b1b;
+            margin: 1.8rem 0;
+            font-weight: 400;
+            color: #1e293b;
+        }
+
+        .article-body .highlight-box strong {
+            font-weight: 600;
+            color: #1a3654;
+        }
+
+        .signature {
+            margin-top: 2.2rem;
+            border-top: 1px solid #e9edf2;
+            padding-top: 1.8rem;
+            font-size: 0.95rem;
+            color: #475569;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.5rem;
+            align-items: center;
+        }
+
+        .signature .left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .author-avatar {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #1a3654, #2d4a7a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.02em;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(26, 54, 84, 0.2);
+            border: 2px solid #ffffff;
+            outline: 1px solid #e2e8f0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="40" r="24" fill="%23ffffff" opacity="0.25"/><circle cx="50" cy="85" r="30" fill="%23ffffff" opacity="0.15"/></svg>');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        .signature .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .signature .author-info .name {
+            font-weight: 600;
+            color: #1a3654;
+            font-size: 1rem;
+        }
+
+        .signature .author-info .role {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .signature .right {
+            text-align: right;
+            font-weight: 400;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .article-body .footnote {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.8rem;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 0.8rem;
+        }
+
+        .image-placeholder {
+            background: #f1f5f9;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0 2rem;
+            color: #64748b;
+            font-size: 0.85rem;
+            text-align: center;
+            border: 1px solid #e9edf2;
+            letter-spacing: 0.02em;
+            background-image: radial-gradient(circle at 10% 20%, #e9edf2 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 0.4rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pull-quote {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1e293b;
+            border-left: 4px solid #991b1b;
+            padding: 0.6rem 1.8rem;
+            margin: 1.6rem 0;
+            background: #f9fbfd;
+        }
+        .pull-quote strong {
+            font-weight: 500;
+            color: #1a3654;
+        }
+
+        .byline-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem 1.2rem;
+            padding: 0.6rem 0 0.2rem 0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eef2f6;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        .byline-bar .label {
+            background: #1a3654;
+            color: #ffffff;
+            padding: 0.1rem 0.8rem;
+            font-weight: 500;
+        }
+
+        .byline-bar .date {
+            color: #64748b;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: #1a3654;
+        }
+
+        .article-body .highlight-red {
+            color: #991b1b;
+            font-weight: 500;
+        }
+
+        /* ===== 推荐区域 (近期热门 + 相关推荐) ===== */
+        .recommend-wrapper {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 2px solid #eef2f6;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .rec-block {
+            width: 100%;
+        }
+
+        .rec-block .rec-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 0.4rem;
+        }
+
+        .rec-block .rec-header .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a3654;
+            letter-spacing: 0.02em;
+        }
+
+        .rec-block .rec-header .title .badge {
+            background: #991b1b;
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 500;
+            padding: 0.1rem 0.7rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.04em;
+        }
+
+        .rec-block .rec-header .more {
+            font-size: 0.75rem;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 0.05rem 0.8rem;
+            border: 1px solid #e2e8f0;
+            cursor: default;
+        }
+
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .rec-item {
+            display: flex;
+            flex-direction: column;
+            background: #fafcff;
+            border: 1px solid #eef2f8;
+            padding: 0.8rem 0.8rem 0.6rem;
+            transition: background 0.1s ease, border-color 0.1s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .rec-item:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .rec-item .rec-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #dce3ec;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #94a3b8;
+            background-image: radial-gradient(circle at 20% 30%, #c8d4e3 1px, transparent 1px);
+            background-size: 20px 20px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .rec-item .rec-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rec-item .rec-head {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a3654;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0.15rem;
+        }
+
+        .rec-item .rec-head .hash {
+            color: #991b1b;
+            font-weight: 500;
+            margin-right: 0.1rem;
+        }
+
+        .rec-item .rec-desc {
+            font-size: 0.75rem;
+            color: #64748b;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .rec-item .rec-meta {
+            margin-top: 0.3rem;
+            font-size: 0.65rem;
+            color: #94a3b8;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rec-item .rec-meta .tag {
+            background: #e9edf2;
+            padding: 0.05rem 0.6rem;
+            font-size: 0.6rem;
+            color: #475569;
+        }
+
+        .rec-item .click-hint {
+            font-size: 0.6rem;
+            background: #1a3654;
+            color: #fff;
+            padding: 0.05rem 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+
+        /* ===== 文章页面（默认隐藏） ===== */
+        .article-page {
+            display: none;
+            background: #ffffff;
+        }
+
+        .article-page.active {
+            display: block;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            padding: 0.4rem 1.2rem;
+            background: #1a3654;
+            color: #fff;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: background 0.15s;
+        }
+
+        .back-btn:hover {
+            background: #2d4a7a;
+        }
+
+        /* 隐藏主内容时使用 */
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 650px) {
+            .article-body {
+                padding: 1.5rem 1.2rem 2rem;
+                font-size: 1rem;
+            }
+            .article-body h2 {
+                font-size: 1.4rem;
+                padding: 0.3rem 0 0.3rem 1.2rem;
+                border-left-width: 4px;
+            }
+            .article-body h2::before {
+                width: 8px;
+                height: 8px;
+                left: -8px;
+            }
+            .article-body h3 {
+                font-size: 1.1rem;
+            }
+            .signature {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .signature .right {
+                text-align: left;
+            }
+            .byline-bar {
+                font-size: 0.75rem;
+                gap: 0.3rem 0.8rem;
+            }
+            .section-image {
+                min-height: 70px;
+            }
+            .rec-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .article-body {
+                padding: 1.2rem 0.8rem 1.8rem;
+            }
+            .article-body h2 {
+                font-size: 1.2rem;
+                padding: 0.2rem 0 0.2rem 0.8rem;
+                border-left-width: 3px;
+            }
+            .article-body h2::before {
+                width: 6px;
+                height: 6px;
+                left: -6px;
+            }
+            .article-body h2::after {
+                width: 40px;
+                left: 0.8rem;
+            }
+            .article-body h3 {
+                font-size: 1rem;
+                padding: 0.1rem 0.8rem 0.1rem 0.6rem;
+            }
+            .article-body ul {
+                margin-left: 1rem;
+            }
+            .author-avatar {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+            .signature .author-info .name {
+                font-size: 0.9rem;
+            }
+            .section-image {
+                min-height: 60px;
+            }
+            .section-image .img-placeholder {
+                padding: 1rem 0.8rem;
+                font-size: 0.7rem;
+            }
+            .section-image .img-placeholder svg {
+                width: 32px;
+                height: 32px;
+            }
+            .rec-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== 主容器 ===== -->
+<div class="container" id="mainContainer">
+
+    <!-- ===== 标题背景 ===== -->
+    <div class="hero-image" id="mainHeader">
+        <div class="hero-title">
+            <span class="title-line-1">丧尽天良！</span>
+            <span class="title-line-2">青苗中学"特色办学"背后竟是惊天骗局</span>
+            <div class="sub-head">
+                <span>今日武阳</span>
+                <span>2025年10月18日</span>
+                <span>记者 本台综合报道</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 正文 ===== -->
+    <div class="article-body" id="mainContent">
+
+        <div class="byline-bar">
+            <span class="label">深度调查</span>
+            <span class="date">2025年10月18日</span>
+            <span>记者 本台综合报道</span>
+            <span style="margin-left:auto; color:#991b1b; font-size:0.75rem; font-weight:600;">独家</span>
+        </div>
+
+        <p>近日，武阳市公安局联合市教育局、市卫生健康委、市市场监督管理局，对青苗中学涉嫌违法犯罪一案实施集中收网。经前期缜密侦查和群众举报，警方于10月15日对该校展开全面清查行动。目前，案件主要事实已初步查明，涉案人员及场所已依法处置，<strong>1499名在校学生已全部安全转移</strong>。</p>
+
+        <p>现将有关情况通报如下：</p>
+
+        <!-- ===== 小标题 1 ===== -->
+        <h2>案件基本情况</h2>
+        <div class="section-image">
+            <div class="img-placeholder">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="案件现场示意">
+                <span class="caption">📷 案件现场 · 示意</span>
+            </div>
+        </div>
+        <p>青苗中学自2020年起，在办学过程中逐步偏离正常教育轨道，以所谓"特色培育"为名，实施了一系列超出法律许可范围的行为。</p>
+
+        <p>调查发现，该校在入学体检环节中，超出正常体检范围，额外采集学生血液及口腔黏膜样本，用于非教学目的的生物学分析，且未就采集用途向学生及监护人进行明确告知与书面授权。同时，该校在编班管理中，依据分析结果将学生划分为"英才班"与"青苗班"两类，其中青苗班学生的日常管理、课程安排及膳食配给与英才班存在显著差异，且青苗班学生长期被限制与外界正常接触。该编班方式缺乏合理教育依据，涉嫌侵犯学生平等受教育权利。</p>
+
+        <p>此外，校医院在未取得药品生产资质的情况下，自行配制名为"YC-08"的液体补充剂，并以"营养加强奶"名义向青苗班学生每日供应。初步检测显示该制剂含有未在食品或营养品目录中登记的物质成分，可能对学生正常生理发育产生不良影响。具体成分及长期摄入风险尚待进一步检测确认。</p>
+
+        <p>校内"青苗农场"在被用作农业生产教学基地的同时，设有未向教育及食品安全部门报备的封闭加工区域。该区域存在非食用原料加工行为，所产出产品被冠以"英材良品"品牌流入学校食堂。产品原料来源及加工过程是否符合食品安全标准，正在进一步鉴定。</p>
+
+        <p>调查过程中还发现，该校存在伪造学生体检报告、学籍档案等行为。2025年3月学生林某在校期间死亡一事，校方所提交的事故调查报告与现有证据存在多处矛盾，涉嫌伪造材料、隐瞒事实。</p>
+
+        <!-- ===== 小标题 2 ===== -->
+        <h2>涉案场所及人员处置</h2>
+        <div class="section-image">
+            <div class="img-placeholder">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="警方行动示意">
+                <span class="caption">🚔 警方行动 · 示意</span>
+            </div>
+        </div>
+        <p>10月15日凌晨，警方依法对青苗中学教学楼、宿舍、食堂、校医院及农场区域实施全面控制。现场查获非法制剂原料数十箱、加工设备若干套，以及标注"英材良品"品牌的罐头制品400余罐。校医院特殊制剂室内，警方查获未贴标的液体样本、实验记录本以及一批生物样本存储设备。青苗农场内的温室大棚和地下培育区已被封锁，相关实验器具与培养装置已封存。</p>
+
+        <p>截至目前，涉案的44名核心人员——包括校长、校医院负责人、农场项目主管等——已全部被依法采取刑事强制措施。涉案的"青苗农场"试验基地、校医院特殊制剂室、食堂非法加工区等17处场所已被依法查封，相关实验设备、制剂原料、生产工具及涉案食品均被扣押。</p>
+
+        <p>相关非法活动已全部被有效制止，彻底消除了其对师生健康的直接危害风险。</p>
+
+        <!-- ===== 小标题 3 ===== -->
+        <h2>学生安置与认领情况</h2>
+        <div class="section-image">
+            <div class="img-placeholder">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="家长认领示意">
+                <span class="caption">👨‍👩‍👧 家长认领 · 示意</span>
+            </div>
+        </div>
+        <p>10月16日上午，学校体育馆被临时改造为认领登记点。警方通过学籍系统与家长信息库逐一比对，分批次通知家长到场认领学生。</p>
+
+        <p>认领现场秩序井然。不少家长在见到孩子后情绪激动，工作人员协助完成信息核对、签字确认等手续。截至10月16日晚21时，全部1499名学生已按照法定程序，由家长接回或由专案组安排统一照护。</p>
+
+        <p>在认领工作推进过程中，由于部分学生学籍档案信息与现阶段身体状况之间存在不一致，相关信息尚需时间进行核实与比对。公安机关经审慎研究，将该部分学生暂时安置于校园指定区域，由专案组协调医务人员及教育工作人员负责统一照护与生活保障，待信息确认完毕后，再行安排其与家人团聚。</p>
+
+        <p>目前，该区域已实施封闭管理，日常工作由专案组统一调度，学生日常生活、情绪疏导及医疗保障均有专人负责。公安机关表示，该项安排是为确保每一位学生能够准确、稳妥地回到亲属身边，后续将根据核查进展适时向社会通报进一步情况。</p>
+
+        <!-- ===== 小标题 4 ===== -->
+        <h2>后续调查与科学研究介入</h2>
+        <div class="section-image">
+            <div class="img-placeholder">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="科研检测示意">
+                <span class="caption">🔬 科研检测 · 示意</span>
+            </div>
+        </div>
+        <p>为进一步查明案件所涉及的生物医学技术细节，武阳市公安局联合格致生命科学研究所（GILS）于10月17日召开专题会议。经上级主管部门批准，格致生命科学研究所将作为第三方科研机构，正式介入本案的相关技术调查工作。</p>
+
+        <p>格致生命科学研究所（GILS）是一家独立注册的生命科学研究机构，长期从事青少年发育、营养与生物信息分析等领域的学术研究。该所表示，将秉持科学严谨的态度，协助警方对以下内容展开进一步分析：</p>
+        <ul>
+            <li>校医院查获的非法制剂成分鉴定</li>
+            <li>青苗农场生物样本的溯源检测</li>
+            <li>学生体内残留物质的代谢追踪与健康风险评估</li>
+            <li>涉案生物技术手段的技术还原</li>
+        </ul>
+        <p>研究所工作人员已于当日下午进驻校园，对封存样本进行初步清点与登记。相关检测结果将在依法完成鉴定程序后，移送司法机关作为案件证据。</p>
+
+        <!-- ===== 小标题 5 ===== -->
+        <h2>司法程序已启动</h2>
+        <div class="section-image">
+            <div class="img-placeholder">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="司法审查示意">
+                <span class="caption">⚖️ 司法审查 · 示意</span>
+            </div>
+        </div>
+        <p>武阳市人民检察院已依法对本案展开审查，将对青苗中学董事会成员、校长、校医院负责人、农场项目主管等主要涉案人员，以涉嫌非法行医、危害公共安全、生产销售有毒有害食品等罪名，依法提起公诉。</p>
+
+        <p>市教育局表示，将配合司法机关完成后续工作，并启动全市范围内民办中小学的专项排查，重点检查招生体检流程、校内食品供应体系及校医院资质。</p>
+
+        <p>市市场监督管理局已对"英材良品"系列罐头产品启动全国范围召回，并在官方平台公布产品批次与流通渠道，呼吁消费者停止食用并联系退回。</p>
+
+        <!-- ===== 小标题 6 ===== -->
+        <h2>写在最后</h2>
+        <div class="section-image">
+            <div class="img-placeholder">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="社会反思示意">
+                <span class="caption">💬 社会反思 · 示意</span>
+            </div>
+        </div>
+        <div class="pull-quote">
+            <strong>这起案件暴露出的，不仅是一所学校的疯狂，更是我们整个社会对教育认知的偏差。</strong>
+        </div>
+        <p>当成绩和"成才"成为唯一的评价标准，当名校录取成为家长竞相追逐的目标，我们的孩子正在承受怎样的压力？</p>
+
+        <p>青苗中学之所以能够长期蒙蔽家长和社会，很大程度上是因为它完美地迎合了这种焦虑——"英才班"、"特色培育"、"高升学率"，每一个标签都精准击中了家长望子成龙的心理。而正是这种急切的期待，让许多人失去了基本的判断力，忽视了孩子身上那些细微的异常。</p>
+
+        <div class="highlight-box">
+            <strong>我们呼吁每一位家长、每一位教育工作者，以及整个社会：</strong><br>
+            少问一句"考了多少分"，多问一句"今天开心吗"。<br>
+            少关心排名和升学率，多关心孩子的睡眠、饮食和情绪变化。<br>
+            少以"为你好"的名义施加压力，多为孩子保留表达的空间。<br>
+            <span style="display:block; margin-top:0.6rem; font-weight:500; color:#1a3654;">一个健康的孩子，从来不是用分数和名校录取通知书来衡量。他们的笑容、好奇心和安全感，才是最珍贵的成长指标。</span>
+        </div>
+
+        <div style="margin: 2rem 0 1rem 0; border-top: 1px solid #e9edf2;"></div>
+
+        <p><strong>今日武阳 · 为您关注真相</strong></p>
+        <div class="image-placeholder">
+            <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="配图示意">
+            （本文配图：为保护当事人隐私，图片已做处理，与本文无直接关联）
+        </div>
+
+        <!-- ===== 签名区 ===== -->
+        <div class="signature">
+            <div class="left">
+                <div class="author-avatar" aria-label="作者头像">赵</div>
+                <div class="author-info">
+                    <span class="name">赵明 · 深度报道组</span>
+                    <span class="role">武阳日报首席记者 · 调查方向：教育/社会</span>
+                </div>
+            </div>
+            <div class="right">
+                <div>编辑：武阳日报新媒体中心</div>
+                <div>审核：赵 明</div>
+                <div>签发：李 华</div>
+                <div style="margin-top:0.3rem; font-size:0.75rem; color:#94a3b8;">未经授权 禁止转载</div>
+            </div>
+        </div>
+
+        <div class="footnote">
+            * 本报道依据官方通报及现场采访综合整理，将持续关注事件进展。
+        </div>
+
+        <!-- ===== 推荐区域：近期热门 + 相关推荐 ===== -->
+        <div class="recommend-wrapper">
+
+            <!-- 近期热门 -->
+            <div class="rec-block">
+                <div class="rec-header">
+                    <span class="title">🔥 近期热门 <span class="badge">HOT</span></span>
+                    <span class="more">更多 →</span>
+                </div>
+                <div class="rec-grid">
+                    <div class="rec-item detail-link" data-target="article-追思林又">
+                        <div class="rec-thumb"><img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="追思林又"></div>
+                        <div class="rec-head"><span class="hash">#</span> 追思林又：以记忆守护真相</div>
+                        <div class="rec-desc">今日武阳 · 1小时前</div>
+                        <div class="rec-meta"><span class="tag">追思</span><span class="click-hint">跳转</span></div>
+                    </div>
+                    <div class="rec-item detail-link" data-target="article-林又死了">
+                        <div class="rec-thumb"><img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="林又死了"></div>
+                        <div class="rec-head"><span class="hash">#</span> 林又死了，然后大家都醒了</div>
+                        <div class="rec-desc">武阳日报 · 3小时前</div>
+                        <div class="rec-meta"><span class="tag">深度</span><span class="click-hint">跳转</span></div>
+                    </div>
+                    <div class="rec-item detail-link" data-target="article-诡事密探">
+                        <div class="rec-thumb"><img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="诡事密探"></div>
+                        <div class="rec-head"><span class="hash">#</span> 诡事密探：废弃医院里那个“鬼影”，给我吓出心理阴影</div>
+                        <div class="rec-desc">夜间探秘 · 昨天</div>
+                        <div class="rec-meta"><span class="tag">诡异</span><span class="click-hint">跳转</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 相关推荐 -->
+            <div class="rec-block">
+                <div class="rec-header">
+                    <span class="title">📌 相关推荐 <span class="badge">关联</span></span>
+                    <span class="more">更多 →</span>
+                </div>
+                <div class="rec-grid">
+                    <div class="rec-item detail-link" data-target="article-追思林又">
+                        <div class="rec-thumb"><img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="追思林又"></div>
+                        <div class="rec-head"><span class="hash">#</span> 追思林又：以记忆守护真相</div>
+                        <div class="rec-desc">武阳晚间 · 10月21日</div>
+                        <div class="rec-meta"><span class="tag">追思</span><span class="click-hint">跳转</span></div>
+                    </div>
+                    <div class="rec-item detail-link" data-target="article-林又死了">
+                        <div class="rec-thumb"><img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="林又死了"></div>
+                        <div class="rec-head"><span class="hash">#</span> 林又死了，然后大家都醒了</div>
+                        <div class="rec-desc">武阳日报 · 3小时前</div>
+                        <div class="rec-meta"><span class="tag">深度</span><span class="click-hint">跳转</span></div>
+                    </div>
+                    <div class="rec-item detail-link" data-target="article-诡事密探">
+                        <div class="rec-thumb"><img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="诡事密探"></div>
+                        <div class="rec-head"><span class="hash">#</span> 诡事密探：废弃医院里那个“鬼影”，给我吓出心理阴影</div>
+                        <div class="rec-desc">夜间探秘 · 昨天</div>
+                        <div class="rec-meta"><span class="tag">诡异</span><span class="click-hint">跳转</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="font-size:0.7rem; color:#94a3b8; text-align:right; margin-top: -0.5rem;">点击卡片跳转详情</div>
+        </div>
+
+    </div>
+    <!-- end article-body -->
+
+</div>
+<!-- end container -->
+
+<!-- ===== 文章页面：追思林又 ===== -->
+<div class="article-page" id="article-追思林又">
+    <div style="padding: 1.2rem 2rem 0;">
+        <button class="back-btn" onclick="goBack()">← 返回主报道</button>
+    </div>
+    <div style="padding: 0 2rem 2rem;">
+        <!-- 直接嵌入追思林又的文章内容 -->
+        <div style="background:#ffffff; padding:0.5rem 0;">
+            <div style="font-size:2rem; font-weight:700; color:#1a3654; margin-bottom:0.2rem;">追思林又</div>
+            <div style="font-size:1.2rem; font-weight:500; color:#2d4a7a; margin-bottom:0.8rem;">以记忆守护真相</div>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.9rem; color:#64748b; border-bottom:1px solid #e9edf2; padding-bottom:0.8rem; margin-bottom:1.2rem;">
+                <span>武阳晚间</span>
+                <span>2025年10月21日</span>
+                <span>记者 周宁</span>
+                <span style="color:#991b1b; font-weight:600;">独家</span>
+            </div>
+            <p>青苗中学的案件已经持续报道多日。在众多信息与数字中，有一个名字值得被记住——<strong>林又</strong>。</p>
+            <p>2025年3月8日，这名学生在学校宿舍内死亡。官方最初通报为自杀，校方对外称"因学业压力过大"。直至九月举报信出现、警方重新介入调查，才发现校方提交的事故报告与实际情况严重不符，存在伪造材料、隐瞒事实的行为。</p>
+            <p>如果没有那封举报信，如果没有家长不放弃追问，林又或许只是校档案里一行冰冷的记录。但正是他的死亡，让外界开始注意到这所学校的不正常，最终揭开了青苗中学长达数年的隐秘操作。</p>
+
+            <h2 style="font-size:1.5rem; font-weight:600; margin:2rem 0 0.8rem; color:#1a3654; border-left:6px solid #991b1b; padding-left:1rem;">他的弟弟也在那所学校</h2>
+            <div style="background:#f1f5f9; padding:1rem; text-align:center; margin:0.6rem 0 1.2rem; border:1px solid #e9edf2;">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="林又的弟弟示意" style="max-width:100%; height:auto;">
+                <span style="display:block; margin-top:0.2rem; color:#64748b; font-size:0.8rem;">👨‍👩‍👧 林又的弟弟 · 示意</span>
+            </div>
+            <p>据核实，林又还有一个弟弟，名叫<strong>林昭</strong>，今年九月刚升入青苗中学。哥哥三月离世，弟弟九月入学。同一个家庭，两个孩子，在同一所学校经历了两件事：一个死了，一个刚从那个地方被接回来。这其中的痛苦，外人很难真正理解。</p>
+            <p>我们无法判断林又在离世前是否察觉到了学校的异常，也无法知道他是否曾试图提醒弟弟。但可以确定的是：当弟弟走进那扇校门时，他是否知道哥哥曾经在这栋楼里度过了怎样的日子？他是否曾走过哥哥最后一次经过的走廊？作为林又的弟弟，这个身份本身就会让他在那所学校里承受常人难以想象的精神重压。</p>
+            <p>青苗中学的领导层，在明知该校存在严重问题的情况下，仍然继续招收新生，其中还包括了一个刚刚失去孩子的家庭。这种行为的冷酷，令人无法接受。</p>
+
+            <h2 style="font-size:1.5rem; font-weight:600; margin:2rem 0 0.8rem; color:#1a3654; border-left:6px solid #991b1b; padding-left:1rem;">学业压力与校园霸凌：沉默的伤痕</h2>
+            <div style="background:#f1f5f9; padding:1rem; text-align:center; margin:0.6rem 0 1.2rem; border:1px solid #e9edf2;">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="学业压力示意" style="max-width:100%; height:auto;">
+                <span style="display:block; margin-top:0.2rem; color:#64748b; font-size:0.8rem;">📚 学业压力 · 示意</span>
+            </div>
+            <p>青苗中学以"升学率高"著称，这是多少家长趋之若鹜的原因。通报中提到，学校内部长期将学生划分为"英才班"和"青苗班"，两类班级的膳食配给和管理方式存在显著差异。在一个校园里，这种人为制造的"等级"本就是对学生的巨大压力。</p>
+            <p>近年来，因学业压力而出现的青少年心理健康问题已不在少数。很多学校把"升学率"当作唯一的尺子，越来越多的孩子在分数和排名的夹缝中喘不过气来。但比学业压力更隐蔽的，是校园里的冷暴力与排挤。一个孩子如果长期处在这种环境中，很难说他能向谁开口。这种压力不是一两次家长会就能解决的。它是日常的、持续的、难以量化的——有时你甚至无法向任何人说清楚哪里出了问题。</p>
+            <p>林又的离去，或许有个人原因，也或许有更多我们不知道的苦衷。但重要的是，我们不能忽视：当一个孩子选择用结束生命来应对困境，说明他早已找不到可以求助的方向。</p>
+
+            <h2 style="font-size:1.5rem; font-weight:600; margin:2rem 0 0.8rem; color:#1a3654; border-left:6px solid #991b1b; padding-left:1rem;">我们能为他做什么？</h2>
+            <div style="background:#f1f5f9; padding:1rem; text-align:center; margin:0.6rem 0 1.2rem; border:1px solid #e9edf2;">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="记住示意" style="max-width:100%; height:auto;">
+                <span style="display:block; margin-top:0.2rem; color:#64748b; font-size:0.8rem;">🕊️ 记住 · 示意</span>
+            </div>
+            <p>案件已交由司法机关处理。作为社会公众，我们能做的事只有一件：<strong>记住。</strong></p>
+            <p>记住这起事件，不是因为林又一个人的死，而是因为如果没有他的死，那些活着的孩子可能至今仍被困在青苗中学。他的离去，是真相的第一道裂缝。</p>
+            <p>同时，我们也想借此机会提醒每一位家长和老师：成绩之外，请多关注孩子的情绪、睡眠、饮食变化。如果孩子突然变得沉默、回避交流、抗拒上学，请多问一句"你怎么了"，而不是急着追问排名。如果孩子说"不舒服"，请先相信他说的。</p>
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:1rem 1.5rem; margin:1.5rem 0;">
+                <p style="font-weight:600; color:#1a3654;">📌 线上追思活动</p>
+                <div style="padding-left:1rem; border-left:3px solid #991b1b; margin:0.3rem 0; padding:0.2rem 0 0.2rem 1rem;">请在评论区留下 <strong>"林又，一路走好"</strong></div>
+                <div style="padding-left:1rem; border-left:3px solid #991b1b; margin:0.3rem 0; padding:0.2rem 0 0.2rem 1rem;">或分享你对校园安全的关注与思考</div>
+                <div style="padding-left:1rem; border-left:3px solid #991b1b; margin:0.3rem 0; padding:0.2rem 0 0.2rem 1rem;">如果你身边有类似值得警惕的现象，欢迎投稿说明</div>
+            </div>
+
+            <h2 style="font-size:1.5rem; font-weight:600; margin:2rem 0 0.8rem; color:#1a3654; border-left:6px solid #991b1b; padding-left:1rem;">我们还在等一个答案</h2>
+            <p>林又的具体死亡原因至今尚未公布。通报中只说校方"伪造材料、隐瞒事实"，但对于他究竟因何而死，目前仍无定论。我们呼吁有关部门尽快公布死因调查结果——如果涉及校园霸凌，施暴者必须依法追责；如果是学校管理或课业压力所致，校方及相关责任人更应为此承担法律后果。一个孩子的生命不应被草草掩埋。真相或许会迟到，但不该缺席。</p>
+            <p>林昭的事也应该被追问：弟弟是在什么情况下被送入同一所学校的？学校在接收他时，是否考虑过这对他精神上的伤害？这些问题，同样需要一个回答。</p>
+
+            <h2 style="font-size:1.5rem; font-weight:600; margin:2rem 0 0.8rem; color:#1a3654; border-left:6px solid #991b1b; padding-left:1rem;">后续</h2>
+            <p>本栏目将持续跟进青苗中学案件的司法进展、学生安置情况、林又死因调查结果以及家属诉求，如有进展将第一时间向公众报道。</p>
+            <div style="font-size:1.2rem; font-weight:400; border-left:4px solid #1a3654; padding:0.6rem 1.8rem; margin:1.6rem 0; background:#f5f8fe;">
+                <strong style="color:#1a3654;">愿天堂没有青苗。<br>愿每个孩子都能平安回家。</strong>
+            </div>
+            <p style="font-weight:500; font-size:1.1rem; color:#1a3654; margin-top:1rem;">武阳晚间 · 新闻的温度</p>
+            <div style="background:#f1f5f9; padding:1rem; text-align:center; margin:1.5rem 0; border:1px solid #e9edf2;">
+                <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="配图示意" style="max-width:100%; height:auto; margin-bottom:0.2rem;">
+                （本文配图：为保护当事人隐私，图片已做处理，与本文无直接关联）
+            </div>
+
+            <!-- 签名 -->
+            <div style="margin-top:2rem; border-top:1px solid #e9edf2; padding-top:1.5rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+                <div style="display:flex; align-items:center; gap:1rem;">
+                    <div style="width:52px; height:52px; background:linear-gradient(135deg,#1a3654,#2d4a7a); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:1.2rem;">周</div>
+                    <div><div style="font-weight:600; color:#1a3654;">周宁 · 深度报道组</div><div style="font-size:0.8rem; color:#64748b;">武阳晚间记者 · 关注教育/社会</div></div>
+                </div>
+                <div style="text-align:right; font-size:0.85rem; color:#64748b;">
+                    <div>编辑：武阳晚间新媒体中心</div>
+                    <div>审核：赵 明</div>
+                    <div>签发：李 华</div>
+                    <div style="font-size:0.75rem; color:#94a3b8;">未经授权 禁止转载</div>
+                </div>
+            </div>
+            <div style="font-size:0.8rem; color:#64748b; border-top:1px dashed #e2e8f0; padding-top:0.8rem; margin-top:0.8rem;">* 本报道基于公开信息及家属采访整理，将持续跟进事件进展。</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== 文章页面：林又死了 ===== -->
+<div class="article-page" id="article-林又死了">
+    <div style="padding: 1.2rem 2rem 0;">
+        <button class="back-btn" onclick="goBack()">← 返回主报道</button>
+    </div>
+    <div style="padding: 0 2rem 2rem; background:#ffffff;">
+        <div style="font-size:2rem; font-weight:700; color:#1a3654; margin-bottom:0.5rem;">林又死了，然后大家都醒了</div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.9rem; color:#64748b; border-bottom:1px solid #e9edf2; padding-bottom:0.8rem; margin-bottom:1.2rem;">
+            <span>武阳日报</span>
+            <span>2025年10月21日</span>
+            <span>记者 周宁</span>
+        </div>
+        <p style="font-size:1.1rem; font-weight:400; color:#1a3654;">林又的死，像一颗石子投入深潭。起初没有人在意，直到涟漪扩散到整个校园，人们才发现池水早已浑浊。</p>
+        <p>他的离开撕开了一道口子。那些被“英才班”“青苗班”划分的等级，那些被美化成绩掩盖的冷暴力，那些以“为你好”为名义的沉默压迫，都在他的死亡之后变得无法再被忽视。</p>
+        <p>家长们在体育馆外抱头痛哭，不是因为他们之前不知道，而是因为他们终于不得不承认——自己把孩子送进了一个怎样的地方。</p>
+        <p>林又的死，不是结束，而是开始。开始追问，开始反思，开始有人站出来说“不”。</p>
+        <div style="background:#f8fafc; padding:1.2rem 1.8rem; border-left:6px solid #991b1b; margin:1.5rem 0;">
+            <strong>“如果他当初能开口，如果学校愿意听，如果家长早一点发现……”</strong><br>
+            可世上没有如果。我们唯一能做的，就是让他的死不再是一个被遗忘的注脚。
+        </div>
+        <div style="background:#f1f5f9; padding:1rem; text-align:center; margin:1.2rem 0; border:1px solid #e9edf2;">
+            <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="示意" style="max-width:100%; height:auto;">
+        </div>
+        <div style="margin-top:1.5rem; border-top:1px solid #e9edf2; padding-top:1rem; font-size:0.85rem; color:#64748b;">
+            <div>编辑：武阳日报新媒体中心</div>
+            <div>审核：赵 明</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== 文章页面：诡事密探 ===== -->
+<div class="article-page" id="article-诡事密探">
+    <div style="padding: 1.2rem 2rem 0;">
+        <button class="back-btn" onclick="goBack()">← 返回主报道</button>
+    </div>
+    <div style="padding: 0 2rem 2rem; background:#ffffff;">
+        <div style="font-size:2rem; font-weight:700; color:#1a3654; margin-bottom:0.5rem;">诡事密探：废弃医院里那个“鬼影”</div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.9rem; color:#64748b; border-bottom:1px solid #e9edf2; padding-bottom:0.8rem; margin-bottom:1.2rem;">
+            <span>夜间探秘</span>
+            <span>2025年10月20日</span>
+            <span>记者 林深</span>
+        </div>
+        <p>青苗中学案发后，我们接到线报，称学校附近有一处废弃多年的医疗机构，疑似与“青苗农场”的封闭加工区存在关联。</p>
+        <p>夜里十一点，我和摄影师摸到了那栋楼前。铁门锈迹斑斑，墙皮剥落，窗户被木板钉死。但二楼有一扇窗，透出微弱的光。</p>
+        <p>“那是什么？”摄影师压低声音问。</p>
+        <p>我顺着他的目光看去——一个瘦长的影子，在窗后缓慢移动，像是在翻找什么。我们屏住呼吸，举起相机。影子突然停住，转向我们的方向，然后——熄灭了。</p>
+        <p>几分钟后，我们听到了脚步声，从楼内传来，越来越近。我们转身就跑，器材箱磕在台阶上，发出巨响。</p>
+        <p>第二天，我们再次前往，发现那扇窗已经被新的木板封死，地上有新鲜的脚印。</p>
+        <p>那栋楼里到底有什么？和青苗中学的“青苗农场”有没有关系？我们还在查。</p>
+        <div style="background:#f1f5f9; padding:1rem; text-align:center; margin:1.2rem 0; border:1px solid #e9edf2;">
+            <img src="https://img.shetu66.com/2023/04/10/1681118578949299.jpg" alt="废弃医院示意" style="max-width:100%; height:auto;">
+            <span style="display:block; margin-top:0.2rem; color:#64748b; font-size:0.8rem;">👻 废弃医院 · 现场示意</span>
+        </div>
+        <div style="margin-top:1.5rem; border-top:1px solid #e9edf2; padding-top:1rem; font-size:0.85rem; color:#64748b;">
+            <div>编辑：夜间探秘编辑部</div>
+            <div>审核：赵 明</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ===== 查看详情功能 =====
+    document.querySelectorAll('.detail-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+
+            // 隐藏主页内容（标题背景 + 正文 + 推荐区域）
+            document.getElementById('mainHeader').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+
+            // 隐藏所有文章页面
+            document.querySelectorAll('.article-page').forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // 显示对应的文章页面
+            const targetPage = document.getElementById(targetId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+            }
+
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        });
+    });
+
+    // ===== 返回主报道 =====
+    function goBack() {
+        // 显示主页内容
+        document.getElementById('mainHeader').style.display = 'flex';
+        document.getElementById('mainContent').style.display = 'block';
+
+        // 隐藏所有文章页面
+        document.querySelectorAll('.article-page').forEach(page => {
+            page.style.display = 'none';
+        });
+
+        // 滚动到顶部
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
